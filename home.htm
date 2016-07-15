@@ -1,0 +1,32 @@
+<h1>Home</h1>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <h4>Forecast by City</h4>
+        <form ng-submit="submit()">
+            <div class="form-group">
+                <input type="text" class="form-control" ng-model="city">
+            </div>
+            <!--<a href="#/forecast" class="btn btn-primary">Get Forecast</a>-->
+            <input type="submit" value="Get Forecast" class="btn btn-primary"/>
+        </form>
+    </div>
+</div><br/>
+<div class="panel panel-default" ng-if="alerts.length > 0">
+    <div class="panel-heading"> Alerts</div>
+    <div class="panel-body">
+        <div class="alert alert-danger" role="alert" ng-repeat="alert in alerts">
+            {{alert.title }}<br/>
+            {{alert.description }}            
+        </div>
+    </div>
+</div>
+<div ng-repeat="day in days">
+    <div class="panel panel-default">
+        <div class="panel-heading"> Day {{$index + 1}}</div>
+        <div class="panel-body">
+            Max:{{day.temperatureMax}}<br/>
+            Min:{{day.temperatureMin}}
+
+        </div>
+    </div>   
+</div>
